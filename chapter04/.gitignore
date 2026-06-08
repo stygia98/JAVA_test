@@ -1,0 +1,112 @@
+/bin/
+
+# =========================================================================
+# Java 컴파일 및 빌드 결과물 (Compiled class files)
+# =========================================================================
+*.class
+*.log
+*.ctxt
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# 빌드 디렉터리 (Build directories)
+target/
+bin/
+out/
+build/
+
+# =========================================================================
+# 크래시 리포트 및 로그 (Crash logs and Execution logs)
+# =========================================================================
+*.log
+*.log.*
+log/
+logs/
+hs_err_pid*
+replay_pid*
+
+# =========================================================================
+# IDE (개발 도구) 전용 파일 및 디렉터리
+# =========================================================================
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/resources/    # 만약 .idea 내부에 자원이 들어가더라도 예외 처리
+gen/
+
+### Eclipse ###
+.metadata/
+.classpath
+.project
+.settings/
+*.launch
+bin/
+tmp/
+
+### Visual Studio Code ###
+.vscode/
+*.code-workspace
+
+### NetBeans ###
+**/nbproject/private/
+**/nbbuild/
+**/dist/
+**/nbdist/
+/.netbeans_derby/
+
+# =========================================================================
+# 빌드 도구 (Build Tools) 관련
+# =========================================================================
+
+### Maven ###
+log/
+target/
+
+### Gradle ###
+.gradle/
+build/
+/captures/
+
+# Gradle 래퍼(Wrapper)의 경우, 협업을 위해 저장소에 올리는 것이 관례이므로 
+# 아래 파일들은 주석 처리하거나 제외(장려)합니다.
+# !gradle-wrapper.jar
+
+# =========================================================================
+# OS 및 시스템 생성 파일 (OS-specific files)
+# =========================================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# =========================================================================
+# 보안 및 로컬 설정 파일 (Security & Local Configuration) - 중요!
+# =========================================================================
+# 데이터베이스 비밀번호, API 키 등이 포함된 설정 파일은 절대 올리지 않습니다.
+*.properties
+*.yml
+*.yaml
+
+# 만약 application.yml 구조는 유지하되 실제 운영 서버 키만 숨기고 싶다면,
+# 공통 틀이 되는 파일(application-default.yml)은 Git에 올리고, 
+# 로컬/보안 파일만 아래처럼 제외하는 방식을 추천합니다.
+application-local.properties
+application-local.yml
+application-prod.properties
+application-prod.yml
+
+# 로컬 환경 변수 파일
+.env
+.env.local

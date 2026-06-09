@@ -24,7 +24,7 @@ public class BookVo {
 	public void setRentCount(int rentCount) {this.rentCount = rentCount;}
 	
 	public String inform() {
-		return "StudentVo [title=" + title + ", genre=" + genre + ", rentCount=" + rentCount + "]";
+		return "[도서명:" + title + " / 장르:" + genre + " / 대여 횟수:" + rentCount + "]";
 	}
 	
 }

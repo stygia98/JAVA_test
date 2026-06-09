@@ -4,9 +4,10 @@ import chapter12.practice05.model.BookVo;
 
 public class BookController extends BookVo {
 	private BookVo[] bookArray;
-	final int CUT_LINE = 0;
+	public final int CUT_LINE;
 		
 	public BookController() {
+		CUT_LINE = 30;
 		bookArray = new BookVo[5];
 		bookArray[0] = new BookVo("자바의정석", "IT", 45);
 		bookArray[1] = new BookVo("혼공 C언어", "IT", 15);
@@ -18,15 +19,19 @@ public class BookController extends BookVo {
 	public BookVo[] printBook() {
 		return bookArray;
 	}
+	
+	public int getCUT_LINE() {
+		return CUT_LINE;
+	}
 
 	public int sumRentCount() {
 		int sum = 0;
 		for (int i = 0; i < bookArray.length; i++) {
-			sum += getRentCount();
+			sum += bookArray[i].getRentCount();
 		}
 		return sum;
 	}
-	
+
 	public double[] avgRentCount() {
 		double[] sumAndAvg = new double[2];
 		

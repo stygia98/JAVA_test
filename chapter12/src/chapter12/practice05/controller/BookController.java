@@ -41,10 +41,17 @@ public class BookController extends BookVo {
 		return sumAndAvg;
 	}
 	
-	
-	
-	
-	
-	
+	public void sortRentCount() {	
+		for (int j = 0; j < bookArray.length-1; j++) {
+			for (int i = j; i < bookArray.length; i++) {
+				if (bookArray[j].getRentCount() < bookArray[i].getRentCount()) {
+					BookVo temp = bookArray[j];
+					bookArray[j] = bookArray[i];
+					bookArray[i] = temp;
+				}//end if
+			}// end for
+		}// end for
+	}
 
+	
 }

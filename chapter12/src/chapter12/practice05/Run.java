@@ -29,10 +29,11 @@ public class Run {
 				System.out.println("회원관리는 작업중");
 				break;
 			case 6:
-				System.out.println("비정상적인 번호 입력됨");
+				System.out.println("프로그램 종료");
 				exitFlag = true;
 				break;
 			default:
+				System.out.println("비정상적인 번호 입력됨");
 				exitFlag = true;
 				break;
 			}

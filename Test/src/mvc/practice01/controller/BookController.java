@@ -42,7 +42,7 @@ public class BookController {
 		return sumAvgArr;
 	}
 	
-	public void sortRentCount() {	
+	public Book[] sortRentCount() {	
 		for (int j = 0; j < bArr.length-1; j++) {
 			for (int i = j; i < bArr.length; i++) {
 				if (bArr[j].getRentCount() < bArr[i].getRentCount()) {
@@ -52,6 +52,7 @@ public class BookController {
 				}//end if
 			}// end for
 		}// end for
+		return bArr;
 	}//end func sortRentCount()
 	
 			

@@ -1,4 +1,4 @@
-package chapter14.practice01;
+package chapter15.practice01;
 
 public class PrintNumber extends Thread {
 	@Override

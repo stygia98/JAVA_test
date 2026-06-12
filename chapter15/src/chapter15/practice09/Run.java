@@ -1,34 +1,29 @@
 package chapter15.practice09;
 
+import chapter15.practice10.MyThread;
+
 public class Run {
 
-	public static void main(String[] args) {
-		Thread mainThread = Thread.currentThread();
-		System.out.printf("Main Thread state : %s\n", mainThread.getState());
+	public static void main(String[] args) throws InterruptedException {
+		MyThread t1 = new MyThread();
+		t1.setName("스레드 1");
+		t1.setDaemon(true);
+		t1.yieldFlag = false;
+		t1.start();
 		
-		Thread thread1 = new Thread ( new Runnable() {
-			
-			@Override
-			public void run() {
-				for (long i = 0; i < 100_000_000_000L; i++) {
-					
-				}
-			}
-		} );
+		MyThread t2 = new MyThread();
+		t2.setName("스레드 2");
+		t2.setDaemon(true);
+		t2.yieldFlag = true;
+		t2.start();
 		
-		System.out.printf("Thread state : %s\n", thread1.getState());
+		for (int i = 0; i < 18; i++) {
+			Thread.sleep(1000);
+			t1.yieldFlag = !t1.yieldFlag;
+			t2.yieldFlag = !t2.yieldFlag;
+		}
 		
-		thread1.start();
-		
-		System.out.printf("Thread state : %s\n", thread1.getState());
-		
-		try {
-			thread1.join();
-		} catch (InterruptedException e) {}
-		System.out.printf("Thread state : %s\n", thread1.getState());
-		
-		System.out.println("Main Thread end");
-		System.out.printf("Main Thread state : %s\n", mainThread.getState());
+		System.out.println("Main Thread End");
 		
 	}
 

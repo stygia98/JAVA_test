@@ -1,4 +1,4 @@
-package chapter16.practice01;
+package chapter16.page03;
 
 public class MyClass2<T, S> {
 	private T t;

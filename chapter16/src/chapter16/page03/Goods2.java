@@ -1,4 +1,4 @@
-package chapter16.practice01;
+package chapter16.page03;
 
 public class Goods2 {
 	private Pencil pencil;

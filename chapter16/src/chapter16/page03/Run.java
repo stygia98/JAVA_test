@@ -1,4 +1,4 @@
-package chapter16.practice01;
+package chapter16.page03;
 
 public class Run {
 	public static void main(String[] args) {

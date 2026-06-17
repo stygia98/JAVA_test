@@ -17,25 +17,31 @@ public class Run {
 		@SuppressWarnings("unused")
 		List<String> aList3 = new LinkedList<String>();
 		
-		//정적리스트로 변경 크기변경불가
+		//=================================================
+		//Array -> List
 		Arrays.asList();
 		List<String> aList4 = Arrays.asList("a", "b", "c");
 			System.out.println(aList4);
+		//set();
 		aList4.set(1, "k");
 			System.out.println(aList4);
-		
-			System.out.println();
 		//=================================================
 		List<String> aList5 = new ArrayList<String>();
+		//add();
 		aList5.add("a"); aList5.add("b"); aList5.add("c"); aList5.add("d"); aList5.add("e");
 			System.out.println(aList5);
+		//clear();
 		aList5.clear();
 			System.out.println(aList5);
-		
+		//isEmpty();
+		//size();
 		if(aList5.isEmpty()) {
 			System.out.printf("aList5 : 자료없음 / size : %d\n", aList5.size());
 		}
 		
+			System.out.println();
+		//=================================================
+		//List -> Array
 		List<String> aList6 = new ArrayList<String>();
 		aList6.add("a"); aList6.add("b"); aList6.add("c"); aList6.add("d"); aList6.add("e");
 		
@@ -43,8 +49,12 @@ public class Run {
 		String[] oArray2 = aList6.toArray(new String[0]);
 			System.out.println(Arrays.toString(oArray1));
 			System.out.println(Arrays.toString(oArray2));
-
 		
+		//=================================================
+		// contains(); iterrator();
+		if (aList6.contains("a")) {
+			System.out.println("list contains 기능");
+		}
 		
 	}
 

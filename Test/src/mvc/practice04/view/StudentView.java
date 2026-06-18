@@ -26,8 +26,10 @@ public class StudentView {
 			System.out.println("4. 특정 학생 삭제");
 			System.out.println("5. 특정 학생 정보 수정");
 			System.out.println("6. 총점 내림차순 정렬 및 석차 부여");
+			System.out.println("7. Test용 더미 자료 입력");
 			System.out.println("0. 프로그램 종료");
-			System.out.print("메뉴 번호 선택 : >>");
+			System.out.print("메뉴 번호 선택 : >> ");
+			
 			int no = Integer.parseInt(scan.nextLine());
 
 			switch (no) {
@@ -37,12 +39,23 @@ public class StudentView {
 			case 3:	searchStudent(); break;
 			case 4:	removeStudent(); break;
 			case 5:	updateStudent(); break;
+			case 6:	sortByTotalDesc(); break;
+			case 7:	addDummy(); break;
 			default: System.out.println("잘못된 번호 입력"); break;
 			}// end switch
 		} // end while
 		
-		System.out.println("============== 프로그램종료 ==============");
+		if(scan != null) scan.close();
+		System.out.println("***** 프로그램종료 *****");
 	} // end func (display) 
+
+	private void addDummy() {
+		sc.addStudent(new Student("홍길동1", 260601, 90, 19, 90));
+		sc.addStudent(new Student("홍길동2", 260602, 90, 80, 37));
+		sc.addStudent(new Student("홍길동3", 260603, 81, 54, 72));
+		sc.addStudent(new Student("홍길동4", 260604, 77, 67, 74));
+		sc.addStudent(new Student("홍길동5", 260605, 50, 90, 93));
+	}
 
 	private void addStudent() {
 		System.out.println("﻿****** 학생 정보 추가 ******");
@@ -59,59 +72,77 @@ public class StudentView {
 		
 		int check = sc.addStudent(new Student(name, no, kor, math, eng));
 		
-		if(check == 1)
-			System.out.println("추가성공");
+		if(check == 1) System.out.println("추가 완료");
+		else System.out.println("추가 실패");
 	}
 	
 	private void printAll() {
 		System.out.println("﻿****** 전체 학생 목록 출력 ******");
 		List<Student> sL = sc.printAll();
-		for (Student temp : sL) {
-			System.out.println(temp);
-		}
+		
+		if(!(sL.isEmpty()))
+			for (Student temp : sL)	System.out.println(temp);
+		else System.out.println("자료가 없습니다");
 	}
 	
-	private void searchStudent() {
+	private Student searchStudent() {
+		System.out.println("﻿****** 학생 검색 ******");
 		System.out.print("이름 : ");
 		String name = scan.nextLine();
-		Student s = sc.searchStudent(name);
-		if(s != null) {
-			System.out.println(s.toString());
-		}
+		Student student = sc.searchStudent(name);
+		
+		if(student != null) System.out.printf("%s\n검색 완료\n", student);
+		else System.out.println("검색 실패");
+
+		return student;
 	}
 	
 	private void removeStudent() {
-		System.out.print("이름 : ");
-		String name = scan.nextLine();
-		Student s = sc.removeStudent(name);
-		if(s != null) {
-			System.out.println(s.toString());
-		}
+		Student searchStudent = searchStudent();
 		
+//		System.out.print("이름 : ");
+//		String name = scan.nextLine();
+		Student student = sc.removeStudent(searchStudent.getName());
+		
+//		if(student != null) System.out.printf("%s\n삭제 완료\n", student);
+		if(student != null) System.out.println("삭제 완료");
+		else System.out.println("삭제 실패");
 	}
 
 	private void updateStudent() {
-		System.out.print("이름 : ");
-		String name = scan.nextLine();
+		Student searchStudent = searchStudent();
 		
-		Student s = sc.searchStudent(name);
-		
-		System.out.print("번호 : ");
-		int no = Integer.parseInt(scan.nextLine());
-		System.out.print("국어 점수 : ");
-		int kor = Integer.parseInt(scan.nextLine());
-		System.out.print("수학 점수 : ");
-		int math = Integer.parseInt(scan.nextLine());
-		System.out.print("영어 점수 : ");
-		int eng = Integer.parseInt(scan.nextLine());
-
-//		Student s = new Student(name, no, kor, math, eng);
-//		int check = sc.updateStudent(name, s);
-		
-		if(check == 1)
-			System.out.println("추가성공");
-		
+		if (searchStudent != null) {
+			System.out.print("이름 수정 : ");
+			String name = scan.nextLine();
+			System.out.print("번호 수정 : ");
+			int no = Integer.parseInt(scan.nextLine());
+			System.out.print("국어 점수 수정 : ");
+			int kor = Integer.parseInt(scan.nextLine());
+			System.out.print("수학 점수 수정 : ");
+			int math = Integer.parseInt(scan.nextLine());
+			System.out.print("영어 점수 수정 : ");
+			int eng = Integer.parseInt(scan.nextLine());
+	
+			String searchName = searchStudent.getName();
+			Student newStudent = sc.updateStudent(searchName, new Student(name, no, kor, math, eng));
+			
+			if(newStudent != null) System.out.printf("%s\n수정 완료\n", newStudent);
+			else System.out.println("수정 실패");
+		} // end if
 	}
-
+	
+	private void sortByTotalDesc() {
+		System.out.println("﻿****** 석차순 정렬 ******");
+		int check = sc.sortByTotalDesc();
+		
+		if(check == 1) {
+			List<Student> sL = sc.copyPrintAll();
+			for (Student temp : sL) System.out.println(temp.toStringForRank());
+			System.out.println("정렬완료");
+		} 
+		else if (check == 2) System.out.println("\n자료없음");
+		else if (check == 0) System.out.println("\n정렬실패");
+	}
 
 } // end class

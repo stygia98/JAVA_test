@@ -26,6 +26,18 @@ public class Student implements Comparable<Student> {
 		this.math = math;
 		this.eng = eng;
 	}
+	
+	public Student(Student s) {
+		super();
+		this.name = s.name;
+		this.id = s.id;
+		this.kor = s.kor;
+		this.math = s.math;
+		this.eng = s.eng;
+		this.total = s.total;
+		this.avg = s.avg;
+		this.rank = s.rank;
+	}
 
 	public String getName() {return name;}
 	public void setName(String name) {this.name = name;}
@@ -63,9 +75,15 @@ public class Student implements Comparable<Student> {
 
 	@Override
 	public String toString() {
-		return name + id + kor + math + eng + total + avg;
+		return String.format("%s(%s)-국어:%d 수학:%d 영어:%d | 총점:%d 평균:%.2f", 
+		        name, id, kor, math, eng, total, avg);
 	}
-
+	
+	public String toStringForRank() {
+		return String.format("%s(%s)-국어:%d 수학:%d 영어:%d | 총점:%d 평균:%.2f 석차:%d", 
+		        name, id, kor, math, eng, total, avg, rank);
+	}
+	
 	@Override
 	public int compareTo(Student o) {
 		

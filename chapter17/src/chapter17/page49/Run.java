@@ -1,5 +1,6 @@
 package chapter17.page49;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -11,6 +12,8 @@ public class Run {
 		
 		// new
 		Set<Data> hset1 = new HashSet<Data>();
+		@SuppressWarnings("unused")
+		Set<Data> syncHset1 = Collections.synchronizedSet(hset1);
 		
 		// add();
 		hset1.add(new Data(1, "a"));

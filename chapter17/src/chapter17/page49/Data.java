@@ -2,7 +2,7 @@ package chapter17.page49;
 
 import java.util.Objects;
 
-public class Data {
+public class Data implements Comparable<Data> {
 	private int no;
 	private String name;
 		
@@ -37,5 +37,15 @@ public class Data {
 		
 		return equalsCheck;
 	}
+
+	@Override
+	public int compareTo(Data o) {
+		int result = name.compareTo(o.name);
+		if(result == 0) 
+			result = this.no - o.no;
+		return result;
+	}
+	
+	
 	
 }

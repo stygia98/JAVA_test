@@ -2,10 +2,6 @@ package chapter17.practice01.view;
 
 import java.util.List;
 import java.util.Scanner;
-
-import chapter12.practice07.Run;
-import chapter12.practice07.controller.StudentController;
-import chapter12.practice07.model.Student;
 import chapter17.practice01.controller.MusicController;
 import chapter17.practice01.model.Music;
 

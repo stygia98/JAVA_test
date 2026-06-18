@@ -8,7 +8,6 @@ import chapter17.practice01.model.Music;
 
 public class MusicController {
 	private List<Music> mList;
-	@SuppressWarnings("unused")
 	private List<Music> cmList;
 
 	public MusicController() {

@@ -32,10 +32,7 @@ public class Data implements Comparable<Data> {
 			if(this.number == data.number) 
 				equalsCheck = true;
 		
-		return equalsCheck;
-		
-	
-		
+		return equalsCheck;		
 	}
 
 	@Override

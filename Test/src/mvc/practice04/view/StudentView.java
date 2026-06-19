@@ -141,7 +141,7 @@ public class StudentView {
 			for (Student temp : sL) System.out.println(temp.toStringForRank());
 			System.out.println("정렬완료");
 		} 
-		else if (check == 2) System.out.println("\n자료없음");
+		else if (check == -1) System.out.println("\n자료없음");
 		else if (check == 0) System.out.println("\n정렬실패");
 	}
 

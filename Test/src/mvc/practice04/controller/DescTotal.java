@@ -7,7 +7,12 @@ import mvc.practice04.model.Student;
 public class DescTotal implements Comparator<Student>{
 	@Override
 	public int compare(Student o1, Student o2) {
-		return o2.getTotal()-o1.getTotal();
+		int compareCheck = o2.getTotal()-o1.getTotal();
+		
+		if(compareCheck == 0)
+			compareCheck = o2.getName().compareTo(o1.getName());
+		
+		return compareCheck;
 	}
 
 }

@@ -74,9 +74,9 @@ public class StudentController {
 	}
 	
 	
-	// return - 0:fail / 1:success / 2:empty
+	// return - 0:fail / 1:success / -1:empty
 	public int sortByTotalDesc() {
-		if(sL.isEmpty()) return 2;
+		if(sL.isEmpty()) return -1;
 		else {
 			copySL.clear(); // clear List for reset
 			

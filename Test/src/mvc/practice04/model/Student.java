@@ -64,11 +64,11 @@ public class Student implements Comparable<Student> {
 	@Override
 	public boolean equals(Object obj) {
 		boolean equalsCheck = false;
-		Student s = (Student) obj;
 		
-		if(obj instanceof Student)
-			if(this.name.equals(s.name) && (this.id == s.id))
-				equalsCheck = true;
+		if(obj instanceof Student) {
+			Student s = (Student) obj;
+			if(this.name.equals(s.name) && (this.id == s.id)) equalsCheck = true;
+		}
 		
 		return equalsCheck;
 	}
@@ -86,8 +86,7 @@ public class Student implements Comparable<Student> {
 	
 	@Override
 	public int compareTo(Student o) {
-		
-		return 0;
+		return this.id - o.id;
 	}
 	
 }
